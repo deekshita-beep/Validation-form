@@ -1,0 +1,128 @@
+<!DOCTYPE HTML>
+<head>
+    <title>form</title>
+    <style>
+  
+ 
+body {
+    background-color: #f3f0ff;
+    font-family: 'Poppins', sans-serif;
+}
+
+
+.form-container {
+    background-color: #ffffff;
+    padding: 25px;
+    width: 350px;
+    margin: 80px auto;
+    border-radius: 12px;
+    box-shadow: 0 8px 16px rgba(168, 148, 255, 0.2);
+}
+
+
+label {
+    display: block;
+    font-weight: 500;
+    margin-bottom: 5px;
+    color: #5c5470;
+}
+
+
+input[type="text"],
+input[type="email"],
+input[type="password"] {
+    width: 94%;
+    padding: 10px;
+    border: 1px solid #d4c3ff;
+    border-radius: 6px;
+    font-size: 14px;
+    margin-bottom: 10px;
+    background-color: #fafaff;
+    transition: border 0.3s;
+}
+
+input[type="text"]:focus,
+input[type="email"]:focus,
+input[type="password"]:focus {
+    border-color: #a390ee;
+    outline: none;
+}
+
+
+.error {
+    color: #d94c4c;
+    font-size: 12px;
+    margin-top: -8px;
+    margin-bottom: 10px;
+    display: none;
+}
+
+
+button[type="submit"],
+button {
+    width: 100%;
+    padding: 12px;
+    background-color: #bca8ff;
+    color: #ffffff;
+    font-size: 16px;
+    font-weight: 500;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+button[type="submit"]:hover,
+button:hover {
+    background-color: #a390ee;
+}
+    
+    </style>
+    
+</head>
+
+<body>
+
+    
+    <form><div class="form-container">
+        <p><label for="firstName">first name:</label>
+          <input type="text" name="first_Name" id="firstName" required></p>
+        
+        <p><label for="lastname">last name:</label>
+        <input type="text" name="Last_Name"  id="lastname"required >
+       </p>
+       
+        <p><label for="email">email:</label>
+        <input type="email" name="User_email"  id="email" required>
+        </p>
+        
+        <p><label for="password">password:</label>
+        <input type="password" name="password" id="password" required>
+        </p>
+        
+        <p><label for="confirmPassword">confirm password:</label>
+        <input type="password" name="confirmPassword" id="confirmPassword" required>
+        <span class="error" id="confirmError" style="display:none">passwords dont match</span></p>
+        
+        <button type="submit">submit</button>
+        </div>
+    </form>
+    
+    
+    <script>
+  const form = document.querySelector("form");
+  const password = document.querySelector('input[name="password"]');
+  const confirmPassword = document.querySelector('input[name="confirmPassword"]');
+  const confirmError = document.getElementById("confirmError");
+
+  form.addEventListener("submit", function (e) {
+    if (password.value !== confirmPassword.value) {
+      e.preventDefault();
+      confirmError.style.display = "inline";
+    } else {
+      confirmError.style.display = "none";
+    }
+  });
+</script>
+</body>
+</html>
